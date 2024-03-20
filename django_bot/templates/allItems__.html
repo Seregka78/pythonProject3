@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for i in items %}
+<h1> {{i.name}} </h1>
+<h3> {{i.disc}} </h3>
+<h3> {{i.price}} </h3>
+<img src="{{i.img}}" >
+
+{% endfor %}
+</body>
+</html>

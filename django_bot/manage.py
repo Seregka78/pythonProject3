@@ -3,6 +3,8 @@
 import os
 import sys
 
+# from django_bot.django_bot.settings import API_KEY
+
 
 def main():
     """Run administrative tasks."""
@@ -20,3 +22,21 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+from django.core.management.base import BaseCommand
+from django.conf import settings
+
+from telebot import TeleBot
+import telebot
+
+# API_KEY = '6025205370:AAH6CuxjcgHjXLuccx0UVKRCwnYNTAhG_OM'
+bot = telebot.TeleBot(settings.API_KEY)
+
+
+@bot.message_handler(content_types=['text'])
+def start(message):
+    bot.send_message(message.from_user.id, 'Hello')
+    bot.send_message(1677886983, 'это я')
+bot.remove_webhook()
+bot.polling(none_stop=True, interval=0)
+# bot.polling()
